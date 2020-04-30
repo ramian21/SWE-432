@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 
 
 export default function Hooks(props) {
-    const { classes, url } = props;
+    // const { classes, url } = props;
     let [clicks, setClicks] = useState(0);
 
     const doSomething = function (event) {
