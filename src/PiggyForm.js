@@ -1,10 +1,10 @@
-import React from 'react';
-
+import React, { Component } from 'react';
+import App from './App';
 
 const questions = ["1. guinea pigs must be kept in solitude",
     "2. guinea pigs eat the same amount of hay, proportionate to their body weight, as horses",
     "3. guinea pigs are omnivores",
-    "4. guinea pigs are distinct relatives of pigs",
+    "4. guinea pigs are distant  relatives of pigs",
     "5. guinea pigs are rodents"];
 
 const facts = ["guinea pigs must be kept in pairs (at the bare minimum!) or they will be sad and stressed",
@@ -21,23 +21,42 @@ function testFunc() {
         </span>
     );
 }
-export default function PiggyForm() {
+class PiggyForm extends Component {
 
-    let questionElements = questions.map((q) => {
+    render() {
+        let questionElements = questions.map((q) => {
+            return (
+                <div className="torfbut"> 
+                    <span>{q}</span><br></br>
+                    <label>
+                        <input
+                        type="radio"
+                        name="react-tips"
+                        value="true"
+                        />
+                        true
+                    </label>
+                    <br></br>
+                    <label>
+                        <input
+                        type="radio"
+                        name="react-tips"
+                        value="false"
+                        />
+                        false
+                    </label>
+                </div>
+            )
+        });
+
         return (
-            <div>
-                <span>{q}</span><br></br>
-                
-            </div>
-        )
-    });
+            <React.Fragment>
+                {questionElements}
+            </React.Fragment>
 
-    return (
-        <React.Fragment>
-            {questionElements}
-        </React.Fragment>
-
-    );
-
+        );
+    }
 
 }
+
+export default PiggyForm;
