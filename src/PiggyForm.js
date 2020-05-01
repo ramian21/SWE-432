@@ -23,25 +23,60 @@ function testFunc() {
 }
 class PiggyForm extends Component {
 
+
+    constructor(props) {
+        super(props);
+        this.state = {
+        }
+
+        for (let i = 0; i < questions.length; i++) {
+            let attrName = 'selectedOption' + i;
+            this.state[attrName] = '';
+        }
+    }
+
+
+    handleOptionChange = (changeEvent) => {
+
+        
+        let name = changeEvent.target.name;
+        let index = name.split('question')[1];
+        let attr = 'selectedOption' + index;
+        console.log(changeEvent.target);
+        
+        let newState = {};
+        newState[attr] = changeEvent.target.value
+
+        this.setState(newState);
+        console.log(this.state);
+    }
+
+
     render() {
+        let i = -1;
         let questionElements = questions.map((q) => {
+            i++;
             return (
-                <div className="torfbut"> 
+                <div className="torfbut">
                     <span>{q}</span><br></br>
                     <label>
                         <input
-                        type="radio"
-                        name="react-tips"
-                        value="true"
+                            type="radio"
+                            name={"question" + i}
+                            value="true"
+                            checked={this.state['selectedOption' + i] === 'true'}
+                            onChange={this.handleOptionChange}
                         />
                         true
                     </label>
                     <br></br>
                     <label>
                         <input
-                        type="radio"
-                        name="react-tips"
-                        value="false"
+                            type="radio"
+                            name={"question" + i}
+                            value="false"
+                            checked={this.state['selectedOption' + i] === 'false'}
+                            onChange={this.handleOptionChange}
                         />
                         false
                     </label>
