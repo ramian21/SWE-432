@@ -7,13 +7,6 @@ const questions = ["1. guinea pigs must be kept in solitude",
     "4. guinea pigs are distant  relatives of pigs",
     "5. guinea pigs are rodents"];
 
-function testFunc() {
-    return (
-        <span>
-            poo
-        </span>
-    );
-}
 class PiggyForm extends Component {
 
     results = ["", "", "", "", ""];
@@ -60,7 +53,7 @@ class PiggyForm extends Component {
             body += '&';
         });
         body = (body.length < 1 ? body : body.substr(0, body.length - 1));
-        let url = 'http://localhost:5000/answer';
+        let url = 'https://swe432-assnseven.herokuapp.com/answer';
 
         const res = await fetch(url,
             {
@@ -134,7 +127,7 @@ class PiggyForm extends Component {
             <React.Fragment>
                 <div>
                     {questionElements}
-                    <button onClick={this.fetchData}>lol</button>
+                    <button className="submit-btn" onClick={this.fetchData}>Submit</button>
                 </div>
             </React.Fragment>
 

@@ -20,6 +20,10 @@ code {
   padding-left: 20px;
 }
 
+.submit-btn {
+  margin-top: 20px;
+}
+
 * {
   text-align: left;
 }
