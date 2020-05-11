@@ -25,7 +25,6 @@ class App extends Component {
         <PiggyTitle />
         <PiggyForm />
 
-        <Hooks />
       </div>
     );
   }
